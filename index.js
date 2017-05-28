@@ -1,31 +1,32 @@
-/*
- * @ deps getScene
- */
+
 vnjs.on('jump', function(pathname){
   let {
         ctx, 
         next, 
         setScene, 
         setLabel, 
-        util, 
         game, 
         parse, 
         getScene, 
         emit
       } = this;
+let isScene = /\/\w+/gi.test(pathname);
 
-  let isScene = /\/\w+/gi.test(pathname);
-  if(isScene){
-    let obj = util.splitPathName(pathname);
-    console.log(pathname);
+function getName(pathname){
+  let pathArr = pathname.split('/');
+  let scene = pathArr[0];
+  let label = pathArr[1];
+  return { label, scene };
+};
+
+  
+if(isScene){
+    let obj = getName(pathname);
     ctx.num = 0;
-    getScene(obj.scene, obj.label);
-  }else{
-
-
-   ctx.num = 0;
-   setLabel(pathname, ctx.scene.labels[pathname] );
-
-   parse();
+    emit('getscene', {labelName: obj.label, sceneName: obj.scene});
+}else{
+    ctx.num = 0;
+    setLabel(pathname, ctx.scene[pathname] );
+    parse();
   }
 });
