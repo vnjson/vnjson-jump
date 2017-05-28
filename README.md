@@ -1,7 +1,8 @@
 ## vnjson-jump
 
 ### Install
-
+[download](https://github.com/vnjson/vnjson-jump/archive/v0.7.1.zip)
+or
 ```bash
   git clone https://github.com/vnjson/vnjson-jump
   
