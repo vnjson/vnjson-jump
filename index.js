@@ -9,7 +9,19 @@ vnjs.on('jump', function(pathname){
         parse,
         emit
       } = this;
-let isScene = /\/\w+/gi.test(pathname);
+
+function isNum(num){
+  return /[0-9]/.test(+num)
+};
+function isScene(pathname){
+  let arr = pathname.split('/');
+  if(arr.length===3){
+    return true;
+  }else if(arr.length===2){
+   
+    return !isNum(arr[1])
+  }
+};
 
 function getName(pathname){
   /*
@@ -21,23 +33,21 @@ function getName(pathname){
  
   let scene = pathArr[0];
   let label = pathArr[1];
-  let num = pathArr[2];
+  let num = pathArr[2]||0;
   return { label, scene, num };
 };
 
  let obj = getName(pathname);
-if(obj.num!==undefined){
-      ctx.num = obj.num;
-    }else{
-      ctx.num = 0;
-    }
 
-if(isScene){
 
-    emit('getscene', {labelName: obj.label, sceneName: obj.scene});
+
+
+if(isScene(pathname)){
+
+    emit('getscene', obj.scene, obj.label, obj.num);
 }else{
 
-    setLabel(pathname, ctx.scene[pathname] );
-    parse();
+    setLabel(pathname, ctx.scene[pathname],  obj.num );
+    
   }
 });
