@@ -60,12 +60,12 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */,
-/* 1 */
+/******/ ({
+
+/***/ 2:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -82,16 +82,6 @@ vnjs.on('jump', function (pathname) {
       emit = this.emit,
       fetch = this.fetch;
 
-
-  function getScene(sceneName, labelName, num) {
-    var scenesDir = config.scenesDir;
-
-    fetch(scenesDir + '/' + sceneName + '.json').then(function (r) {
-      return r.json();
-    }).then(function (data) {
-      setScene(sceneName, data, labelName, num);
-    });
-  }
 
   function isNum(num) {
     return (/[0-9]/.test(+num)
@@ -124,13 +114,14 @@ vnjs.on('jump', function (pathname) {
   var obj = getName(pathname);
 
   if (isScene(pathname)) {
-    emit('preload');
-    getScene(obj.scene, obj.label, obj.num);
+
+    emit('getscene', obj.scene, obj.label, obj.num);
   } else {
-    emit('chengelabel');
+    emit('changelabel');
     setLabel(pathname, ctx.scene[pathname], obj.num);
   }
 });
 
 /***/ })
-/******/ ]);
+
+/******/ });
