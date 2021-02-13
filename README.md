@@ -27,7 +27,7 @@ __`chapter2.yaml`__
 - print: hello
   background: img3
 - print: world!
-- jump: volume2/start
+- jump: volume2.start
 ```
 
 __`volume2/start`__
@@ -41,11 +41,11 @@ __`volume2/start`__
 __`program`__
 
 ```js
-vnjs.parse({
-        jump: 'scene/label'
+vnjs.exec({
+        jump: 'scene.label'
       });
 
-vnjs.parse({jump: 'label'});
+vnjs.exec({jump: 'label'});
 ```
 
 
