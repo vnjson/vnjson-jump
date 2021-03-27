@@ -1,8 +1,8 @@
-![plugin v0.2.3](https://img.shields.io/badge/plugin-v0.2.3-brightgreen.svg?style=flat-square) 
+![plugin v0.6.0](https://img.shields.io/badge/plugin-v0.2.3-brightgreen.svg?style=flat-square) 
 ## vnjson-jump
 
 ### Install
-[download](https://github.com/vnjson/vnjson-jump/archive/v0.7.1.zip)
+[download](https://github.com/vnjson/vnjson-jump/archive/v0.8.0.zip)
 or
 ```bash
   git clone https://github.com/vnjson/vnjson-jump
@@ -46,6 +46,7 @@ vnjs.exec({
       });
 
 vnjs.exec({jump: 'label'});
+vnjs.emit('jump', 'scene.label')
 ```
 
 
