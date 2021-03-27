@@ -1,4 +1,4 @@
-![plugin v0.6.0](https://img.shields.io/badge/plugin-v0.2.3-brightgreen.svg?style=flat-square) 
+![plugin v0.8.0](https://img.shields.io/badge/plugin-v0.8.0-brightgreen?style=flat-square) 
 ## vnjson-jump
 
 ### Install
