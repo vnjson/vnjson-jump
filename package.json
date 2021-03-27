@@ -1,6 +1,6 @@
 {
   "name": "jumpVnjson",
-  "version": "0.6.0",
+  "version": "0.8.0",
   "description": "```bash\r   git clone https://github.com/vnjson/vnjson-jump",
   "main": "dist/index.js",
   "scripts": {
